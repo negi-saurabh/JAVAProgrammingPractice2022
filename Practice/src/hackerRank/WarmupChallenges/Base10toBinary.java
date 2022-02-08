@@ -10,6 +10,7 @@ public class Base10toBinary {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(bufferedReader.readLine().trim());
         
+        
         String binaryNum = "";
         while(n>0){
         	int x = n%2;

@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.joining;
 
+
 public class MinAbsoluteDifference {
 
 	public static void main(String[] args) throws IOException {

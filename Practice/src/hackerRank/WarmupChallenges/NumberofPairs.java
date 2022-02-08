@@ -8,6 +8,7 @@ public class NumberofPairs {
 	public static void main(String[] args)
 	{
 		int n = 9;
+		
 		List<Integer> ar = new ArrayList<>(Arrays.asList(10, 20, 20, 10, 10, 30, 50, 10, 20));
 		int result = sockMerchant(n, ar);
 		System.out.println("The number of total pair of socks is :: " + result);
