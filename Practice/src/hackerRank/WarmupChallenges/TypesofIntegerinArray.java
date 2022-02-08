@@ -24,6 +24,8 @@ public class TypesofIntegerinArray {
 
 		TypesofIntegerinArray.plusMinus(arr);
 		bufferedReader.close();
+		
+		
 		}
 	
 	
