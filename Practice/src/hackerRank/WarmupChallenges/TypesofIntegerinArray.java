@@ -23,7 +23,7 @@ public class TypesofIntegerinArray {
 				.map(Integer::parseInt)
 				.collect(toList());
 
-		TypesofIntegerinArray	.plusMinus(arr);
+		TypesofIntegerinArray.plusMinus(arr);
 
 		bufferedReader.close();
 		}
