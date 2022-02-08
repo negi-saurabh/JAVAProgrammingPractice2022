@@ -23,7 +23,6 @@ public class TypesofIntegerinArray {
 				.collect(toList());
 
 		TypesofIntegerinArray.plusMinus(arr);
-
 		bufferedReader.close();
 		}
 	
