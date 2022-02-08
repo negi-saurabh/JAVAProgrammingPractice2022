@@ -26,6 +26,8 @@ public class TypesofIntegerinArray {
 
 		bufferedReader.close();
 		}
+	
+	
 
 	public static void plusMinus(List<Integer> arr) {
 		// Write your code here
