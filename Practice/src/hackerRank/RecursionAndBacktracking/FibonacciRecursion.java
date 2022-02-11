@@ -1,4 +1,4 @@
-package hackerRank.WarmupChallenges;
+package hackerRank.RecursionAndBacktracking;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package hackerRank.WarmupChallenges;
+package hackerRank.GreedyAlgo;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

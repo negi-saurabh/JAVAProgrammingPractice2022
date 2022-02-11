@@ -1,4 +1,4 @@
-package hackerRank.WarmupChallenges;
+package hackerRank.DynamicProgramming;
 
 import java.io.*;
 import java.math.*;
