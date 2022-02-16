@@ -7,7 +7,7 @@ public class CentauriPrime {
   private static String getRuler(String kingdom) {
     // TODO: implement this method to determine the ruler name, given the kingdom.
     String ruler = "";
-    char last = kingdom.charAt(kingdom.length()-1);
+    char last = kingdom.toLowerCase().charAt(kingdom.length()-1);
     	if(last == 'y')
     	{
     		ruler = "nobody";
