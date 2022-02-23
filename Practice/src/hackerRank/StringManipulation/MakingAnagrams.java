@@ -37,13 +37,10 @@ public class MakingAnagrams {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-
 		String a = bufferedReader.readLine();
-
 		String b = bufferedReader.readLine();
-
 		int res = MakingAnagrams.makeAnagram(a, b);
-
+		System.out.println(res);
 		bufferedReader.close();
 	}
 }
