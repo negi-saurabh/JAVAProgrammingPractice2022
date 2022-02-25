@@ -31,11 +31,7 @@ public class MaxArraySum {
 			int arrItem = Integer.parseInt(arrItems[i]);
 			arr[i] = arrItem;
 		}
-
 		int res = maxSubsetSum(arr);
-
-
-
 	}
 
 
@@ -43,13 +39,16 @@ public class MaxArraySum {
 	static int maxSubsetSum(int[] arr) {
 
 		int length = arr.length;
-		for(int i=0; i<length; i++) {
-			for(int j=i+2;j<length;j++) {
-
-			}
+		int inc = arr[0];
+		int exl= 0;
+		int oldInc = 0;
+		for(int i=1; i<length; i++) {
+			oldInc = inc;
+			inc= Math.max(inc, Math.addExact(exl, arr[i]));
+			exl = inc;
 		}
 
-		return 0;
+		return inc > exl? inc:exl;
 
 
 	}
