@@ -44,11 +44,11 @@ public class MaxArraySum {
 		int oldInc = 0;
 		for(int i=1; i<length; i++) {
 			oldInc = inc;
-			inc= Math.max(inc, Math.addExact(exl, arr[i]));
-			exl = inc;
+			inc= Math.max(inc, (exl + arr[i]));
+			exl = oldInc;
 		}
 
-		return inc > exl? inc:exl;
+		return inc > exl ? inc:exl;
 
 
 	}

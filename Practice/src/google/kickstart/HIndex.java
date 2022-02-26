@@ -7,37 +7,7 @@ public class HIndex {
         int[] hIndex = new int[citationsPerPaper.length];
 
         // TODO: Add logic to calculate h-index score for each paper
-        int totalPapers = citationsPerPaper.length;
-        List tempList = new ArrayList();
-        Map indexMap = new HashMap();
-        for (int i = 0; i < totalPapers; i++) {
-            int citation = citationsPerPaper[i];
-            if (indexMap.containsKey(citation)) {
-                int numberOfTimes = (int) indexMap.get(citation);
-                numberOfTimes++;
-                indexMap.put(citation, numberOfTimes);
-            } else {
-                indexMap.put(citation, 1);
-            }
-        }
 
-        int lastHIndex = 1;
-        for (int i = 0; i < totalPapers; i++) {
-            Iterator iter = indexMap.keySet().iterator();
-            int counter = 0;
-            while (iter.hasNext()) {
-                int key = (int) iter.next();
-                if (key >= citationsPerPaper[i]) {
-                    counter = counter + (int)indexMap.get(key);
-                }
-            }
-            if (counter >= citationsPerPaper[i] && citationsPerPaper[i] > lastHIndex) {
-                hIndex[i] = counter;
-                lastHIndex = counter;
-            } else {
-                hIndex[i] = lastHIndex;
-            }
-        }
         return hIndex;
     }
 
