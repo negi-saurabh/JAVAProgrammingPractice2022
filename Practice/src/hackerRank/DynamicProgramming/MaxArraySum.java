@@ -43,9 +43,10 @@ public class MaxArraySum {
 		int exl= 0;
 		int oldInc = 0;
 		for(int i=1; i<length; i++) {
+			int newExl = Math.max(inc, exl);
 			oldInc = inc;
-			inc= Math.max(inc, (exl + arr[i]));
-			exl = oldInc;
+			inc= exl + arr[i];
+			exl = newExl;
 		}
 
 		return inc > exl ? inc:exl;

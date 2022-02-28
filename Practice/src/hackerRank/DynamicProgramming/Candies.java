@@ -29,28 +29,37 @@ class Result {
 		int count = 0;
 		int length = arr.size();
 		int candies = 1;
-		int sum = 1;
-		int leftOverCandies = 0;
+		int sum = 0;
+		int[] frontTOback = new int[length];
+		frontTOback[0] = 1;
+		int[] backToFront = new int[length];
+		backToFront[length-1] = 1;
 		for (int i = 1; i < length; i++) {
-
-			if(arr.get(i) > arr.get(i-1))
-			{
-				if(count>0) {
-					leftOverCandies = count*(count+1)/2;
-					sum  = sum +leftOverCandies;
-					candies = count;
-				}
+			if(arr.get(i)>arr.get(i-1)) {
 				candies++;
-				sum  = sum + candies;
+			}else {
+				candies = 1;
 			}
-			else if(arr.get(i) == arr.get(i-1)) {
-				sum  = sum + (candies-1);
-			}
-			else {
-				count++;
-			}
+			frontTOback[i]=candies;
 		}
 
+		for (int i = length-2; i >-1; i--) {
+			if(arr.get(i)>arr.get(i+1)) {
+				candies++;
+			}else {
+				candies = 1;
+			}
+			backToFront[i] = candies;
+		}
+
+		for (int i = 0; i < backToFront.length; i++) {
+			if(backToFront[i]>frontTOback[i]) {
+				sum = sum + backToFront[i];
+			}
+			else {
+				sum = sum + frontTOback[i];
+			}
+		}
 		return sum;
 	}
 
