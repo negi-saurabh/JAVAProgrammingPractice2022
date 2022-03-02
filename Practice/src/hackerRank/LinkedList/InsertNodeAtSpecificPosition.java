@@ -81,21 +81,18 @@ public class InsertNodeAtSpecificPosition {
 		public static SinglyLinkedListNode insertNodeAtPosition(SinglyLinkedListNode llist, int data, int position) {
 			
 			// Write your code here
-			SinglyLinkedList list = new SinglyLinkedList();
-			list.head = llist;
-			
-			while(list.head.next!=null) {
-				list.tail = list.head.next;
-			}
+			SinglyLinkedListNode myNode = new SinglyLinkedListNode(data);
+			SinglyLinkedListNode temp = llist;
 			
 			while(position>1) {
-				list.head = list.head.next;
+				temp = temp.next;
 				position--;
 			}
+			SinglyLinkedListNode temp2 = temp.next;
+			temp.next = myNode;
+			myNode.next = temp2;
 			
-			list.insertNode(data);
-			list.tail = tempNode.next;
-			return list.head;
+			return llist;
 		}
 
 	}
