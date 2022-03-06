@@ -7,18 +7,16 @@ public class HeightOfBinaryTree {
 	public static int height(Node root) {
 
 		// Write your code here.
-		int height = 0;
-		if(root == null || root.left == null || root.right ==  null)
+		if(root ==  null)
 			return 0;
-		while(root.left!=null || root.right != null) {
-			height++;
-			if(root.left!=null)
-				root.left = root.left.left;
-			else
-				root.right = root.right.right;
-		}
 
-		return height;
+		//getting left node
+		int lh = height(root.left);
+
+		//getting right node
+		int rh = height(root.right);
+		 return Math.max(lh, rh) + 1;
+
 	}
 	public static Node insert(Node root, int data) {
 		if(root == null) {
