@@ -1,14 +1,18 @@
-package hackerRank.DictionariesAndHashmaps;
+package hackerRank.dictionariesandhashmaps;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.List;
 
 public class HashTablesRansomNote {
+
+	// Sample input
+	// 6 5
+	// two times three is not four
+	// two times two is four
 
 	class Result {
 

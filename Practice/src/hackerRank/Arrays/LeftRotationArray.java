@@ -1,4 +1,4 @@
-package hackerRank.Arrays;
+package hackerRank.arrays;
 
 import static java.util.stream.Collectors.toList;
 import java.io.*;

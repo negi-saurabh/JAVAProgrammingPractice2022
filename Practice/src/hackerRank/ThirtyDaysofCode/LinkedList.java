@@ -1,5 +1,4 @@
-package hackerRank.ThirtyDaysofCode;
-import java.io.*;
+package hackerRank.thirtydaysofcode;
 import java.util.*;
 
 public class LinkedList {

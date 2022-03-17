@@ -1,4 +1,4 @@
-package hackerRank.WarmupChallenges;
+package hackerRank.warmupchallenges;
 
 public class Toptel1 {
 

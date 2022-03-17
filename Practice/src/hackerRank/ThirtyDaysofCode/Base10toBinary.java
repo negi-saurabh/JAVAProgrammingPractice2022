@@ -1,4 +1,4 @@
-package hackerRank.ThirtyDaysofCode;
+package hackerRank.thirtydaysofcode;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package hackerRank.ThirtyDaysofCode;
+package hackerRank.thirtydaysofcode;
 
 public class Inheritance {
 

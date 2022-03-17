@@ -1,16 +1,9 @@
-package hackerRank.DynamicProgramming;
+package hackerRank.dynamicprogramming;
 
 import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.function.*;
-import java.util.regex.*;
-import java.util.stream.*;
+
 import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.toList;
 
 public class MaxArraySum {
 
@@ -31,7 +24,11 @@ public class MaxArraySum {
 			int arrItem = Integer.parseInt(arrItems[i]);
 			arr[i] = arrItem;
 		}
+
 		int res = maxSubsetSum(arr);
+
+
+
 	}
 
 
@@ -39,17 +36,13 @@ public class MaxArraySum {
 	static int maxSubsetSum(int[] arr) {
 
 		int length = arr.length;
-		int inc = arr[0];
-		int exl= 0;
-		int oldInc = 0;
-		for(int i=1; i<length; i++) {
-			int newExl = Math.max(inc, exl);
-			oldInc = inc;
-			inc= exl + arr[i];
-			exl = newExl;
+		for(int i=0; i<length; i++) {
+			for(int j=i+2;j<length;j++) {
+
+			}
 		}
 
-		return inc > exl ? inc:exl;
+		return 0;
 
 
 	}

@@ -1,6 +1,4 @@
-package hackerRank.ThirtyDaysofCode;
-import java.io.*;
-import java.util.*;
+package hackerRank.thirtydaysofcode;
 
 public class QueuesAndStacks {
 	public static void main(String[] args) {

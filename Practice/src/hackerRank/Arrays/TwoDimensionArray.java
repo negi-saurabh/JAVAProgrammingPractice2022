@@ -1,4 +1,4 @@
-package hackerRank.Arrays;
+package hackerRank.arrays;
 
 import java.io.*;
 import java.util.*;

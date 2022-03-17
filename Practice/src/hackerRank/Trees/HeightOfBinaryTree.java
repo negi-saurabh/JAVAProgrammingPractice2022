@@ -1,4 +1,4 @@
-package hackerRank.Trees;
+package hackerRank.trees;
 
 import java.util.Scanner;
 

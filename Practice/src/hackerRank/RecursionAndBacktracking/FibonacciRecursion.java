@@ -1,4 +1,4 @@
-package hackerRank.RecursionAndBacktracking;
+package hackerRank.recursionAndbacktracking;
 
 import java.util.Scanner;
 
