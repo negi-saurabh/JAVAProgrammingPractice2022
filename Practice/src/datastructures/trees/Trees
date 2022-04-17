@@ -1,0 +1,16 @@
+1) Why Trees
+If we want to store something that forms hierarchy. For example the computer file system
+Trees with some ordering provide moderate access/search quicker than LL slower that A
+Trees provide moderate insertion and deletion quicker than A slower than LL
+Trees don't have upper limit on number of nodes
+
+2) Main applications of trees include
+manipulate hierarchical data
+make information easy to search
+manipulate sorted lists of data
+as a workflow for composing digital images for visual effects
+router algo
+form of a multi stage decision making
+
+3) Binary Tree
+A tree whose elements have at most 2 children is called a binary tree
