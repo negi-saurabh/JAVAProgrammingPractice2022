@@ -18,6 +18,10 @@ public class BinaryTree{
         root = null;
     } 
     
+    BinaryTree(String ok, String string2, String hello){
+        root = null;
+    } 
+    
     
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
