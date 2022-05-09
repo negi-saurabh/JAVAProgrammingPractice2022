@@ -7,8 +7,7 @@ public class MergeTwoSortedList {
 		if(list1.val>list2.val) {
 			
 		}
-		
-		
+		return list2;
 	}
 
 }
