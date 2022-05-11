@@ -28,9 +28,11 @@ public class ArrayManipulation {
 			for (int j = startIndex; j < endIndex; j++) {
 				formedArray[i][j]= formedArray[i-1][j] + toInsert;
 			}
-			if(max<Collections.max(Arrays.asList(formedArray[i]))){
-				
-			}
+			/*
+			 * if(max<Collections.max(Arrays.asList(formedArray[i]))){
+			 * 
+			 * }
+			 */
 		}
 
 		return n;
