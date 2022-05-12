@@ -1,4 +1,4 @@
-package leetcode.medium;
+package leetcode.medium.array;
 
 import static java.util.stream.Collectors.toList;
 

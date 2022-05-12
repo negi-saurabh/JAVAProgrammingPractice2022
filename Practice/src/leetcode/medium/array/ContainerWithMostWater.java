@@ -1,4 +1,4 @@
-package leetcode.medium;
+package leetcode.medium.array;
 
 import static java.util.stream.Collectors.toList;
 
@@ -11,20 +11,22 @@ import java.util.stream.Stream;
 public class ContainerWithMostWater {
 
 	public static int maxArea(Integer[] height) {
+		/* BRUTE FORCE
+		 * int max = Integer.MIN_VALUE; int area = Integer.MIN_VALUE; for (int i = 0; i
+		 * < height.length; i++) { for(int j = i+1; j < height.length; j++) { area =
+		 * Math.min(height[i],height[j])*(j-i); if(max<area) max = area; } }
+		 */
 		int max = Integer.MIN_VALUE;
+		int area = Integer.MIN_VALUE;
+		int secondIndex = height.length-1;
 		for (int i = 0; i < height.length; i++) {
-			int firstValue = height[i];
-			for (int j = 1; j < height.length; j++) {
-				int secondValue = height[j];
-				int area =  Integer.MIN_VALUE;
-				if(firstValue<secondValue)
-					area = firstValue*(j-i);
-				else
-					area = secondValue*(j-i);
-					
-				if(max<area)
-					max = area;
+			area = Math.min(height[i],height[secondIndex])* Math.abs(secondIndex-i);
+			if(height[i]>height[secondIndex]) {
+				secondIndex--;
+				i--;
 			}
+			if(max<area) 
+				max = area;
 		}
 		return max;
 	}
