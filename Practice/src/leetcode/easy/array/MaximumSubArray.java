@@ -1,9 +1,20 @@
 package leetcode.easy.array;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
+
 public class MaximumSubArray {
 
-	public static void main(String[] args) {
-		System.err.println(maxSubArray(new int[] {1, -2, 3, -4}));
+	public static void main(String[] args) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		String[] input = reader.readLine().split(",");
+		int[] intInput = new int[input.length];
+		for (int i = 0; i < input.length; i++) {
+			intInput[i] = Integer.parseInt(input[i]); 
+		}
+		System.err.println(maxSubArray(intInput));
 	}
 
 	public static int maxSubArray(int[] nums) {
