@@ -11,15 +11,29 @@ public class MergeSortedArray {
 		for (int i = 0 ; i < m ; i++){
 			firstArray[i] = nums1[i];
 		}
-		for (int i = 0 ; i < (m<=n?m:n) ; i++){
-			int t =  0;
-			while(firstArray[i] <= nums2[i]) {
-				nums1[i] = firstArray[i];
-				t++;
-			}
-			
-		}
 
+		int i = 0 , j =0 , k = 0;
+		while( i < m  && j <n) {
+			if(firstArray[i]<nums2[j]) {
+				nums1[k] = firstArray[i];
+				i++;
+			}else {
+				nums1[k] = nums2[j];
+				j++;
+			}
+			k++;
+		}
+		
+		while ( i < m) {
+			nums1[k] = firstArray[i];
+			i++;
+			k++;
+		}
+		while ( j < n) {
+			nums1[k] = nums2[j];
+			j++;
+			k++;
+		}
 	}
 	public static void main(String[] args) throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
