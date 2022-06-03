@@ -9,36 +9,29 @@ import java.util.List;
 public class SortColors {
 
 	public static void sortColors(int[] nums) {
-		if(nums == null || nums.length ==0)
-			return;
-		int zeros = 0;
-		int ones = 0;
-		int twos = 0;
-		for (int i = 0; i < nums.length; i++) {
-			if(nums[i] == 0) {
-				zeros++;
+		int i = 0;
+		int j = 0;
+		int k = nums.length - 1;
+		while(j<=k){
+			if(nums[j] == 0){
+				swap(nums,i,j);
+				i++;
+				j++;
 			}
-			if(nums[i] == 1) {
-				ones++;
+			else if(nums[j] == 2){
+				swap(nums,j,k);
+				k--;
 			}
-			if(nums[i] == 2) {
-				twos++;
-			}
-		}
-		
-		for (int i = 0; i < nums.length; i++) {
-			if(i>= 0 && i<zeros) {
-				nums[i] = 0;
-			}
-			else if(i>=zeros && i< (zeros+ones)) {
-				nums[i] = 1;
-			}
-			else if( i>=(zeros+ones) && i< (zeros+ones + twos)) {
-				nums[i] = 2;
+			else{
+				j++;
 			}
 		}
-
 	}
+	public static void swap(int[] nums, int i,int j){
+		int temp = nums[i];
+		nums[i] = nums[j];
+		nums[j] = temp;
+	}	   
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
