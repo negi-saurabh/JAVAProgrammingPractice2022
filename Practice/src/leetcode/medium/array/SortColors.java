@@ -27,6 +27,15 @@ public class SortColors {
 		}
 		
 		for (int i = 0; i < nums.length; i++) {
+			if(i>= 0 && i<zeros) {
+				nums[i] = 0;
+			}
+			else if(i>=zeros && i< (zeros+ones)) {
+				nums[i] = 1;
+			}
+			else if( i>=(zeros+ones) && i< (zeros+ones + twos)) {
+				nums[i] = 2;
+			}
 		}
 
 	}
@@ -39,7 +48,6 @@ public class SortColors {
 			intInput[i] = Integer.parseInt(input[i]); 
 		}
 		sortColors(intInput);
-
 	}
 
 }
