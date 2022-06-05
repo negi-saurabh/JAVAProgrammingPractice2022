@@ -7,30 +7,38 @@ import java.util.Stack;
 
 public class ValidParentheses {
 
-	public static  boolean isValid(String s) {
-		Stack<Character> validCheck  = new Stack<>();
-		for (int i = 0; i < s.length(); i++) {
-			char current = s.charAt(i);
-			validCheck.push(current);
-			if (current == ')' && !validCheck.isEmpty()) {
-				if (validCheck.pop() != '(')
-					return false;
+	public static boolean isValid(String s) {
+		int length = s.length();
+		char[] s1 = s.toCharArray();
+		if(length==0)
+			return true;
+		Stack<Character> stack = new Stack<>();
+
+		for(int i=0;i<length;i++){
+			if(s1[i]=='(' || s1[i]=='[' || s1[i]=='{'){
+				stack.push(s1[i]);
 			}
-			else if (current == '}' && !validCheck.isEmpty()) {
-				if (validCheck.pop() != '{')
-					return false;
+			else if(!stack.empty() && s1[i]==')' && stack.peek()=='('){
+				stack.pop();
 			}
-			else if (current == ']' && !validCheck.isEmpty()) {
-				if (validCheck.pop() != '[')
-					return false;
+			else if(!stack.empty() && s1[i]==']' && stack.peek()=='['){
+				stack.pop();
+			}
+			else if(!stack.empty() && s1[i]=='}' && stack.peek()=='{'){
+				stack.pop();
+			}
+			else {
+				return false;
 			}
 		}
-		return validCheck.isEmpty();
+
+		return stack.empty();
 	}
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		String input = reader.readLine();
+		isValid(input);
 	}
 
 }
