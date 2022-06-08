@@ -14,6 +14,8 @@ public class BinaryTreeLevelOrderTraversal {
 		
 		listPerLevel.add(root.val);
 		
+		System.out.println("Test");
+		
 		return null;
 	}
 
