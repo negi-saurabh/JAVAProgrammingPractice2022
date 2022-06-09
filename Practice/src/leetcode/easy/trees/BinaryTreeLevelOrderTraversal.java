@@ -7,16 +7,40 @@ public class BinaryTreeLevelOrderTraversal {
 
 	List<List<Integer>> levelOrderlist = new ArrayList<>();
 	public List<List<Integer>> levelOrder(TreeNode root) {
-		List<Integer> listPerLevel = new ArrayList<Integer>();
+
+		for (int i = 1; i <= height(root); i++) {
+			List<Integer> eachlevel = getLevelList(root, i);
+			levelOrderlist.add(eachlevel);
+		}
+		return levelOrderlist;
+	}
+
+	List<Integer> getLevelList(TreeNode node, int level){
+		List<Integer> eachlevel = new ArrayList<Integer>();
+		if(node == null)
+			return eachlevel;
 		
-		if( root == null)
-			return levelOrderlist;
-		
-		listPerLevel.add(root.val);
-		
-		System.out.println("Test");
-		
-		return null;
+		if( level == 1) {
+			eachlevel.add(node.val);
+			return eachlevel;
+		}
+		if( level > 1) {
+			List<Integer> eachLeftlevel = getLevelList(node.left, level - 1);
+			List<Integer> eachRightlevel= getLevelList(node.right, level - 1);
+			eachlevel.addAll(eachLeftlevel);
+			eachlevel.addAll(eachRightlevel);
+		}
+		return eachlevel;
+	}
+
+	int height(TreeNode root) {
+		if(root == null)
+			return 0;
+		else {
+			int subLeftHeight = height(root.left);
+			int subRightHeight = height(root.right);
+			return Math.max(subLeftHeight+1, subRightHeight+1);
+		}
 	}
 
 	public static void main(String[] args) {
