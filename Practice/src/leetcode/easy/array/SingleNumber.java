@@ -9,19 +9,12 @@ import java.util.Map;
 public class SingleNumber {
 
 	public int singleNumber(int[] nums) {
-		Map<Integer, Integer> valueTimes = new HashMap<Integer, Integer>();
-		for (int i = 0; i < nums.length; i++) {
-			int key = nums[i];
-			if(valueTimes.containsKey(key)) {
-				valueTimes.remove(key);
-			}
-			else
-			{
-				valueTimes.put(key, 1);
-			}
-		}
-		return (int) valueTimes.keySet().toArray()[0];
-	}
+        int num=0;
+        for(int val: nums){
+            num=num^val;
+        }
+        return num;
+    }
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
