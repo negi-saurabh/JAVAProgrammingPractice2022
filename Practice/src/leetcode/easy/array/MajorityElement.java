@@ -55,7 +55,7 @@ public class MajorityElement {
 			intInput[i] = Integer.parseInt(input[i]); 
 		}
 
-		System.out.println(new MajorityElement().majorityElement(intInput));
+		System.out.println(new MajorityElement().majorityElementFASTSOLUTION(intInput));
 	}
 
 }
