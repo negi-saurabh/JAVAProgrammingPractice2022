@@ -2,66 +2,58 @@ package leetcode.medium.array;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ValidSudoku {
 
 	public static boolean isValidSudoku(char[][] board) {
 		Map<Character, Integer> valueTimes = new HashMap<>();
-
-		for (int i = 0; i < board.length; i++) {
-			char key = board[i][0];
-			if (key == '.')
-				continue;
-			if(valueTimes.containsKey(key)) {
-				int val = valueTimes.get(key);
-				val = val +1;
-				valueTimes.put(key, val);
-			}else {
-				valueTimes.put(key, 1);
+		List<Character> numberCheck;
+		for (int i = 0; i < 9; i++) {
+			numberCheck = new ArrayList<>();
+			for (int j = 0; j < 9; j++) {
+				char key = board[i][j];
+				if (key == '.')
+					continue;
+				if(numberCheck.contains(key))
+					return false;
+				else
+					numberCheck.add(key);
 			}
 		}
-		if(valueTimes.containsValue(2))
-			return false;
 
-		valueTimes = new HashMap<>();
-		for (int i = 0; i < board.length; i++) {
-			char key = board[0][i];
-			if (key == '.')
-				continue;
-			if(valueTimes.containsKey(key)) {
-				int val = valueTimes.get(key);
-				val = val +1;
-				valueTimes.put(key, val);
-			}else {
-				valueTimes.put(key, 1);
+		for (int i = 0; i < 9; i++) {
+			numberCheck = new ArrayList<>();
+			for (int j = 0; j < 9; j++) {
+				char key = board[j][i];
+				if (key == '.')
+					continue;
+				if(numberCheck.contains(key))
+					return false;
+				else
+					numberCheck.add(key);
 			}
 		}
-		if(valueTimes.containsValue(2))
-			return false;
 
-
-		for (int k = 0; k < 3; k++) {
-			for (int i = k; i < 3; i++) {
-				valueTimes = new HashMap<>();
-				for (int j = 0; j < 3; j++) {
-					char key = board[i][j];
-					if(valueTimes.containsKey(key)) {
-						int val = valueTimes.get(key);
-						val = val +1;
-						valueTimes.put(key, val);
-					}else {
-						valueTimes.put(key, 1);
+		for (int l = 0; l < 9; l=l+3) {
+			for (int k = 0; k < 9; k = k+3) {
+				numberCheck = new ArrayList<>();
+				for (int i = l ; i < l + 3; i++) {
+					for (int j = k; j < k + 3; j++) {
+						char key = board[i][j];
+						if (key == '.')
+							continue;
+						if(numberCheck.contains(key))
+							return false;
+						else
+							numberCheck.add(key);
 					}
 				}
-				if(valueTimes.containsValue(2))
-					return false;
 			}
-			k++;
-			k++;
 		}
-
 		return true;
 	}
 
@@ -69,17 +61,16 @@ public class ValidSudoku {
 	public static void main(String[] args) {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-		char[][] sudoku = {{'5','3','.','.','7','.','.','.','.'}
-		,{'6','.','.','1','9','5','.','.','.'}
-		,{'.','9','8','.','.','.','.','6','.'}
-		,{'8','.','.','.','6','.','.','.','3'}
-		,{'4','.','.','8','.','3','.','.','1'}
-		,{'7','.','.','.','2','.','.','.','6'}
-		,{'.','6','.','.','.','.','2','8','.'}
-		,{'.','.','.','4','1','9','.','.','5'}
-		,{'.','.','.','.','8','.','.','7','9'}};
+		char[][] sudoku = { {'.','.','.','.','5','.','.','1','.'},
+							{'.','4','.','3','.','.','.','.','.'},
+							{'.','.','.','.','.','6','.','.','.'},
+							{'8','.','.','.','.','.','.','2','.'},
+							{'.','.','2','.','7','.','.','.','.'},
+							{'.','1','5','.','.','.','.','.','.'},
+							{'.','.','.','.','.','2','.','.','.'},
+							{'.','2','.','9','.','.','.','.','.'},
+							{'.','.','4','.','.','.','.','.','.'}};
 
-		boolean result = isValidSudoku(sudoku);
+		System.out.println(isValidSudoku(sudoku));
 	}
-
 }
