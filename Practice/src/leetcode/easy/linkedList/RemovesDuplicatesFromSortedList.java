@@ -1,5 +1,7 @@
 package leetcode.easy.linkedList;
 
+import datastructures.ListNode;
+
 public class RemovesDuplicatesFromSortedList {
 	
 	 public static ListNode deleteDuplicates(ListNode head) {

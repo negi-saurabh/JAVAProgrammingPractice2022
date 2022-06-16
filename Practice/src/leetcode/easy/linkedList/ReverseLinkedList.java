@@ -1,5 +1,7 @@
 package leetcode.easy.linkedList;
 
+import datastructures.ListNode;
+
 public class ReverseLinkedList {
 
 	public static ListNode reverseList(ListNode head) {

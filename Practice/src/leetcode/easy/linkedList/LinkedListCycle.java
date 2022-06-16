@@ -1,5 +1,7 @@
 package leetcode.easy.linkedList;
 
+import datastructures.ListNode;
+
 public class LinkedListCycle {
 	
 	public boolean hasCycle(ListNode head) {

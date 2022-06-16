@@ -1,5 +1,7 @@
 package leetcode.easy.linkedList;
 
+import datastructures.ListNode;
+
 public class RemoveLinkedListElements {
 
 	public static ListNode removeElements(ListNode head, int val) {
