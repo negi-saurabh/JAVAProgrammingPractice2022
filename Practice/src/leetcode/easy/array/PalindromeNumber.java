@@ -9,20 +9,20 @@ public class PalindromeNumber {
 	public boolean isPalindrome(int x) {
 		String input = Integer.toString(x);
 		int k = input.length()-1;
+		boolean flag = true;
+
 		for (int i = 0; i<=k; i++) {
 			if(i==k) {
-				return true;
+				break;
 			}
 			if(input.charAt(i) == input.charAt(k)) {
 				k--;
 				continue;
 			}else {
-				return false;
+				flag =  false;
 			}
-			
 		}
-		
-		return false;
+		return flag;
 	}
 
 	public static void main(String[] args) throws IOException {
