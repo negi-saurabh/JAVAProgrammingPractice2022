@@ -14,6 +14,9 @@ public class PalindromeNumber {
 		for (int i = 0; i<=k; i++) {
 			if(i==k) {
 				break;
+				
+				
+				
 			}
 			if(input.charAt(i) == input.charAt(k)) {
 				k--;
