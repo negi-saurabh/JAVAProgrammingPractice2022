@@ -10,7 +10,7 @@ public class SymmetricTree {
 		if(root.left.val != root.right.val)
 			return false;
 		else {
-			isSymmetric(root.left);
+			isSymmetric(root.left.left);
 			isSymmetric(root.right);
 		}
 		return false;
