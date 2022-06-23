@@ -5,19 +5,17 @@ import java.util.List;
 public class SymmetricTree {
 
 	public boolean isSymmetric(TreeNode root) {
-		if(root == null)
-			return true;
-		if(root.left.val != root.right.val)
-			return false;
-		else {
-			isSymmetric(root.left.left);
-			isSymmetric(root.right);
+		return check(root,root);
+	}
+	private boolean check(TreeNode root1,TreeNode root2){
+		if(root1==null || root2==null){
+			return root1==root2;
 		}
-		return false;
+		return root1.val==root2.val && check(root1.left,root2.right) && check(root1.right,root2.left);
 	}
 
 	public static void main(String[] args) {
-		TreeNode leftnode = new TreeNode(3, new TreeNode(45) , new TreeNode(62));
+		TreeNode leftnode = new TreeNode(71, new TreeNode(89) , new TreeNode(22));
 		TreeNode rightnode = new TreeNode(71, new TreeNode(89) , new TreeNode(22));
 		TreeNode node = new TreeNode(56, leftnode , rightnode);
 		System.out.println(new SymmetricTree().isSymmetric(node));
