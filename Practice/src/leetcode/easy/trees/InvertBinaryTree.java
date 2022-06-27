@@ -5,16 +5,12 @@ public class InvertBinaryTree {
 	public TreeNode invertTree(TreeNode root) {
 		if(root == null)
 			return root;
-		
-		invertTree(root.left);
-		invertTree(root.right);
-		
-		if(root.left != null && root.right != null)
-		{
-			int temp = root.left.val;
-			root.left.val = root.right.val;
-			root.right.val = temp;
-		}
+
+		TreeNode left = invertTree(root.left);
+		TreeNode right = invertTree(root.right);
+
+		root.left = right;
+		root.right = left;
 		return root;
 	}
 
