@@ -2,28 +2,36 @@ package leetcode.easy.trees;
 
 public class PathSum {
 
-	public boolean hasPathSum(TreeNode root, int targetSum) {
-		if(root == null && targetSum == 0)
-			return true;
-		return branchSum(root, root.val, targetSum);
-	}
-	private boolean branchSum(TreeNode node, int sum , int targetSum ) {
-		if(sum == targetSum)
-			return true;
-		int LeftSum =0 , RightSum =0;
-
-		if(node.left != null) {
-			LeftSum = sum + node.left.val;
-			if(branchSum(node.left, LeftSum, targetSum))
-				return true;
-		}
-		if(node.right != null) {
-			RightSum = sum + node.right.val;
-			if(branchSum(node.right, RightSum, targetSum))
-				return true;
-		}
-		return false;
-	}
+	public boolean hasPathSum(TreeNode root, int sum) {
+        if(root == null) return false;
+ 
+        LinkedList<TreeNode> nodes = new LinkedList<TreeNode>();
+        LinkedList<Integer> values = new LinkedList<Integer>();
+ 
+        nodes.add(root);
+        values.add(root.val);
+ 
+        while(!nodes.isEmpty()){
+            TreeNode curr = nodes.poll();
+            int sumValue = values.poll();
+ 
+            if(curr.left == null && curr.right == null && sumValue==sum){
+                return true;
+            }
+ 
+            if(curr.left != null){
+                nodes.add(curr.left);
+                values.add(sumValue+curr.left.val);
+            }
+ 
+            if(curr.right != null){
+                nodes.add(curr.right);
+                values.add(sumValue+curr.right.val);
+            }
+        }
+ 
+        return false;
+    }
 
 	public static void main(String[] args) {
 		TreeNode leftnode = new TreeNode(1, new TreeNode(9) , new TreeNode(2));
