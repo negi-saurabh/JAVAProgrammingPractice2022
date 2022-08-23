@@ -13,11 +13,12 @@ public class JumpGame {
 	public static boolean canJump(Integer[] nums) {
 		int currentLastJumpNeeds = 1;
 		int totalJumpsNeeded = nums.length-1;
-		if( nums[0] == 0) {
-			return false;
-		}
+		
 		if(totalJumpsNeeded==0) {
 			return true;
+		}
+		if( nums[0] == 0) {
+			return false;
 		}
 		for (int i = nums.length-1; i >= 0; i--) {
 			if(i==0) {
@@ -28,6 +29,7 @@ public class JumpGame {
 			}else {
 				if(nums[i-1] >= currentLastJumpNeeds) {
 					totalJumpsNeeded = totalJumpsNeeded - currentLastJumpNeeds;
+					currentLastJumpNeeds = 1 ;
 				}
 				else {
 					currentLastJumpNeeds++;
