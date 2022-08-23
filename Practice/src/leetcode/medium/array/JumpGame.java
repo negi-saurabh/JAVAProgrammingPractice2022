@@ -11,8 +11,31 @@ import java.util.stream.Stream;
 public class JumpGame {
 
 	public static boolean canJump(Integer[] nums) {
-		
-		return false;
+		int currentLastJumpNeeds = 1;
+		int totalJumpsNeeded = nums.length-1;
+		if( nums[0] == 0) {
+			return false;
+		}
+		if(totalJumpsNeeded==0) {
+			return true;
+		}
+		for (int i = nums.length-1; i >= 0; i--) {
+			if(i==0) {
+				if(totalJumpsNeeded > nums[i])
+					return false;
+				else 
+					return true;
+			}else {
+				if(nums[i-1] >= currentLastJumpNeeds) {
+					totalJumpsNeeded = totalJumpsNeeded - currentLastJumpNeeds;
+				}
+				else {
+					currentLastJumpNeeds++;
+				}
+			}
+		}
+
+		return true;
 	}
 
 	public static void main(String[] args) throws IOException {
