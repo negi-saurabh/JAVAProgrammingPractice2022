@@ -42,7 +42,7 @@ public class GasStation {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 			String[] inputArray = reader.readLine().replaceAll("\\s+$", "").split(",");
 			List<Integer> a = Stream.of(inputArray).map(Integer::parseInt).collect(toList());
-			System.out.print(canCompleteCircuit(a.toArray(new Integer[a.size()])));
+			System.out.print(canCompleteCircuit(a.toArray(new Integer[a.size()]), null));
 		}
 
 }
