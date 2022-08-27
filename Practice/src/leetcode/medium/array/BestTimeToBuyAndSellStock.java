@@ -7,25 +7,26 @@ import java.io.InputStreamReader;
 public class BestTimeToBuyAndSellStock {
 
 	public static int maxProfit(int[] prices) {
-		int min = prices[0];
-		int max = prices[0];
 		int totalProfit = 0;
-		int profit = 0;
-		
-		for (int i = 1; i < prices.length; i++) {
-			int priceOfTheDay = prices[i];
-			if(max < priceOfTheDay) {
-				profit = Math.max(profit, priceOfTheDay-min);
-				min = Math.min(min, priceOfTheDay);
-				max = Math.max(max, priceOfTheDay);
-			}else if(max > priceOfTheDay) {
-				totalProfit  = totalProfit + profit;
-				max = 0;
-			}else {
-				min = priceOfTheDay;
+		int interProfit = 0;
+		int min = Integer.MAX_VALUE;
+		boolean flag = false;
+
+		for (int i = 0; i < prices.length-1; i++) {
+			int currentDay = prices[i];
+			int nextDay = prices[i+1];
+			if(currentDay < nextDay) {
+				min = Math.min(min, currentDay);
+				interProfit = Math.max(interProfit, nextDay - min);
+				flag = true;
+			}if((currentDay > nextDay || i == prices.length-2) && flag) {
+				totalProfit = totalProfit + interProfit;
+				flag = false;
+				min = Integer.MAX_VALUE;
+				interProfit = 0;
 			}
 		}
-		return totalProfit;
+		return totalProfit == 0 ? interProfit : totalProfit ;
 	}
 
 
