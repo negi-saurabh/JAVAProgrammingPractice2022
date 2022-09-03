@@ -1,6 +1,7 @@
 package codility.toptal.onlinetest;
 
 public class DownloadRemaining {
+
 	public static int solution(int x,int[] B,int z) {
 		try{
 			int length = B.length;
@@ -15,7 +16,6 @@ public class DownloadRemaining {
 				if(lastStartingIndex==i){
 					averageSum += B[i];
 					lastStartingIndex++;
-
 				}
 			}
 			if(total == x) {
@@ -28,5 +28,10 @@ public class DownloadRemaining {
 		{
 			return -1;
 		}
-	}    
+	}
+
+	public static void main(String[] args) {
+		System.out.println();
+	}
+
 }
