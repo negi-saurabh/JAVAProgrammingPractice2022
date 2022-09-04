@@ -1,33 +1,25 @@
 package codility.toptal.onlinetest;
 
+import java.util.Iterator;
+
 public class DownloadRemaining {
 
 	public static int solution(int x,int[] B,int z) {
+		int downloaded = 0;
 		try{
-			int length = B.length;
-			if(z>=length){
-				z=length;
+			for (int i = 0; i < B.length; i++) {
+				downloaded =+ B[i];
 			}
-			int lastStartingIndex=length-z;
-			int total=0;
-			int averageSum=0;
-			for(int i=0;i<length;i++){
-				total += B[i];
-				if(lastStartingIndex==i){
-					averageSum += B[i];
-					lastStartingIndex++;
-				}
+			if(true)
+			for (int i = 0; i < z; i++) {
+				
 			}
-			if(total == x) {
-				return 0;
-			}
-			double average=averageSum/2.0;
-			return (int)Math.ceil((x-total)/average);
 		}
 		catch(Exception e)
 		{
 			return -1;
 		}
+		return downloaded;
 	}
 
 	public static void main(String[] args) {
