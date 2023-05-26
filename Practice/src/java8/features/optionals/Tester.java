@@ -7,7 +7,7 @@ public class Tester {
 	public static void main(String[] args) {
 		Tester 	tester = new Tester();
 		Integer value1 = null;
-		Integer value2 = new Integer(10);
+		Integer value2 = Integer.valueOf(10);
 
 		//Optional.ofNullable - allows passed parameter to be null.
 		Optional<Integer> a = Optional.ofNullable(value1);
@@ -27,7 +27,7 @@ public class Tester {
 
 		//Optional.orElse - returns the value if present otherwise returns
 		//the default value passed.
-		Integer value1 = a.orElse(new Integer(0));
+		Integer value1 = a.orElse(Integer.valueOf(0));
 		System.out.println("value of value1: " + value1);
 		//Optional.get - gets the value, value should be present
 		Integer value2 = b.get();
