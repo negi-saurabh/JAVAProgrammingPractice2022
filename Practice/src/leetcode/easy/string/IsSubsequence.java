@@ -12,10 +12,7 @@ public class IsSubsequence {
 		if (s.length()<1){
 			return true;
 		}
-
 		int sIndex = 0;
-
-
 		for (int i = 0; i < t.length(); i++) {
 			if (t.charAt(i) == s.charAt(sIndex)) {
 				sIndex++;
