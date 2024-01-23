@@ -9,13 +9,14 @@ public class CheckArrayIsSortedRotated {
                 breakIndex = i;
             }
         }
-        for (int i = 1 ; i< breakIndex; i++){
-            if(nums[i] < nums[i-1]){
-                return false;
-            }
+
+        int[] orderedArray = new int[nums.length];
+        for (int i = 0; i < orderedArray.length; i++) {
+            orderedArray[i] = nums[(i+breakIndex) % orderedArray.length];
         }
-        for (int i = breakIndex + 1 ; i < nums.length; i++){
-            if(nums[i] < nums[i-1]){
+
+        for (int i = 1; i < orderedArray.length; i++) {
+            if(orderedArray[i] < orderedArray[i-1]){
                 return false;
             }
         }
