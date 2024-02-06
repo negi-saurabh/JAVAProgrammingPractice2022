@@ -10,19 +10,17 @@ public class LongestSubArrayWithGivenSumKApproachTwo {
     // wrong
     public static int lenOfLongSubarr(int A[], int N, int K) {
         //Complete the function
-        int sum = A[0];
+        int sum = 0;
         int maxLength = 0;
-        if(sum == K){
-            maxLength = 1;
-        }
-        int count = 1;
-        for(int i = 1 ; i < A.length ; i++){
-            sum += A[i];
-            count ++;
-            if(sum == K){
-                maxLength = Math.max(maxLength, count);
-                sum = 0;
-                count = 0;
+        for(int i=0,j = 0 ; j < N ; j++){
+            sum = A[j];
+            if(sum > K && i<=j)
+            {
+                sum -= A[i];
+                i++;
+            }
+            if(sum == K ){
+                maxLength = Math.max(maxLength, j-i);
             }
         }
         return maxLength;
