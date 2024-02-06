@@ -6,6 +6,8 @@ import java.util.Map;
 import static java.lang.Math.max;
 
 public class LongestSubArrayWithGivenSumKApproachTwo {
+
+    // wrong
     public static int lenOfLongSubarr(int A[], int N, int K) {
         //Complete the function
         int sum = A[0];
