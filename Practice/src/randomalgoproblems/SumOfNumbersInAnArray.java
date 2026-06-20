@@ -1,7 +1,7 @@
 package randomalgoproblems;
 
 public class SumOfNumbersInAnArray {
-    t sumOfNumbers(String input) {
+    public int sumOfNumbers(String input) {
         int sum = 0;
         StringBuffer sb = new StringBuffer();
 
