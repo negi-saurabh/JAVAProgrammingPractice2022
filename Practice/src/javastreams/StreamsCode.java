@@ -1,8 +1,11 @@
 package javastreams;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class StreamsCode {
@@ -32,5 +35,23 @@ public class StreamsCode {
                     Map.Entry::getValue,
                     (a, b) -> a,
                     LinkedHashMap::new));
+
+    // Write a stream pipeline that returns the top 3 most frequently occurring
+    // words across all sentences,
+    // case-insensitive, excluding words shorter than 3 characters. Return them as a
+    // List<String>
+    // ordered by frequency descending.
+
+    List<String> sentences;
+
+    List<String> list = sentences.stream()
+            .flatMap(s -> Arrays.stream(s.toLowerCase().split("\\W+")))
+            .filter(w -> w.length() >= 3)
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+            .entrySet().stream()
+            .sorted(Map.Entry.<String, Long>comparingByValue(Comparator.reverseOrder()))
+            .limit(3)
+            .map(Map.Entry::getKey)
+            .toList();
 
 }
