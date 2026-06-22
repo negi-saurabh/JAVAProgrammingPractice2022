@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Checking {
+public class GetLongestNumberFromString {
 
     // convert it to character array
     // check if its a digit
@@ -38,7 +38,7 @@ public class Checking {
     }
 
     public static void main(String[] args) {
-        Checking checking = new Checking();
+        GetLongestNumberFromString checking = new GetLongestNumberFromString();
         String longest = checking.getLongest("Invoice INV-2024 has 3 items: SKU48291 x2, SKU10342 x1, total EUR 1599");
         System.out.println("longest. " + longest);
     }
