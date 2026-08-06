@@ -52,7 +52,7 @@ public class DayOne {
             sum += temp;
             int key = seen.getOrDefault(sum - k, 0);
             if (key != 0)
-                count++;
+                count+= key;
             seen.merge(sum, 1, Integer::sum);
         }
         return count;
