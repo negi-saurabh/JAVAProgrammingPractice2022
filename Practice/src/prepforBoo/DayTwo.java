@@ -10,7 +10,7 @@ public class DayTwo {
     public static void main(String[] args) {
 
         System.out.println(isPalindrome("NAMAN"));
-        minSubArrayLen( 4, new int[]{2,3,1,2,4,3});
+        minSubArrayLengthWithAllowedPositiveArray( 4, new int[]{2,3,1,2,4,3});
     }
 
     public static boolean isPalindrome(String s) {
@@ -71,18 +71,33 @@ public class DayTwo {
        return longest;
     }
 
-    public static int minSubArrayLen(int target, int[] nums) {
-       int minLength = Integer.MAX_VALUE , left= 0, sum = 0, count = 0 ;
+    public static int minSubArrayLengthWithAllowedPositiveArray(int target, int[] nums) {
+       int minLength = Integer.MAX_VALUE , left= 0, sum = 0 ;
 
        for(int right = 0 ; right < nums.length ;right ++) {
            sum += nums[right];
            while (sum >= target) {
                minLength = Math.min(minLength, right - left + 1);
-               ;
                sum -= nums[left];
                left++;
            }
        }
         return minLength == Integer.MAX_VALUE ? 0 : minLength;
+    }
+    public static int minSubArrayLenNeg(int target, int[] nums) {
+        int n = nums.length;
+        long[] prefix = new long[n + 1];                  // prefix[k] = sum of first k elements
+        for (int i = 0; i < n; i++) prefix[i + 1] = prefix[i] + nums[i];
+
+        int minLen = Integer.MAX_VALUE;
+        for (int j = 1; j <= n; j++) {                    // end of subarray
+            for (int i = j - 1; i >= 0; i--) {            // start, scanning back from closest
+                if (prefix[j] - prefix[i] >= target) {    // subarray (i, j] sums to >= target
+                    minLen = Math.min(minLen, j - i);
+                    break;                                // largest i = shortest for this j → stop
+                }
+            }
+        }
+        return minLen == Integer.MAX_VALUE ? 0 : minLen;
     }
 }
