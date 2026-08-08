@@ -1,8 +1,6 @@
 package prepforBoo;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class DayFour {
@@ -23,5 +21,34 @@ public class DayFour {
                 .allMatch(count -> count % 2 == 0);
 
     }
+
+    public static boolean containsDuplicates(int[] arr){
+        Set set = new HashSet();
+        for(int i = 0 ; i < arr.length ;i ++){
+            int val = arr[i];
+            if(set.contains(val))
+                return true;
+
+            set.add(val);
+        }
+        return false;
+    }
+
+    public static boolean ransomNote(String magazine, String note){
+        Map<Character, Integer> magazineArray = new HashMap<>();
+        for (char s: magazine.toCharArray()) {
+                magazineArray.merge(s, 1, Integer::sum);
+        }
+
+        for (char s: note.toCharArray()) {
+            if(magazineArray.getOrDefault(s, 0) == 0) {
+               return false;
+            }
+            magazineArray.merge(s, -1, Integer::sum);
+        }
+        return true;
+    }
+
+
 
 }
