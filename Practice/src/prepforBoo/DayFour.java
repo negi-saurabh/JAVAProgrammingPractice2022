@@ -1,12 +1,14 @@
 package prepforBoo;
 
+import java.awt.desktop.SystemSleepEvent;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class DayFour {
 
     public static void main(String[] args) {
-
+        List<List<String>> groupedList = groupAnagrams(new String[] {"eat","tea","tan","ate","nat","bat"});
+        groupedList.stream().forEach(a-> System.out.println(a));
     }
 
     public static boolean validAnagram(String one, String two){
@@ -49,6 +51,49 @@ public class DayFour {
         return true;
     }
 
+    public static int firstUniqueCharacter(String str){
+        Map<Character, Integer> characterIntegerMap = new LinkedHashMap<>();
+        for (char c : str.toCharArray()) {
+            characterIntegerMap.merge(c, 1, Integer::sum);
+        }
+
+        Optional<Map.Entry<Character, Integer>> first = characterIntegerMap.entrySet()
+                .stream().filter(e -> e.getValue() == 1).findFirst();
+
+        Map.Entry<Character, Integer> firstEntry  = first.isPresent() ? first.get() : null;
+        return firstEntry != null ? str.indexOf(firstEntry.getKey()): -1 ;
+    }
+
+    public static Set<Integer> arrayIntersection(int[] arr1, int[] arr2){
+        Set<Integer> set = new HashSet<>();
+        Set<Integer> result = new HashSet<>();
+
+        for (int n : arr1) {
+            set.add(n);
+        }
+
+        for (int n : arr2) {
+            if (set.contains(n)) {
+                result.add(n);
+            }
+        }
+
+        return result;
+    }
+
+    public static List<List<String>> groupAnagrams(String[] arr){
+        Map<String, List<String>> groupedMap = new HashMap<>();
+        for (String i : arr ) {
+            int[] charArray = new int[26];
+            for (char c : i.toCharArray()) {
+                charArray[c - 'a']++;
+            }
+            String val = Arrays.toString(charArray);
+            groupedMap.computeIfAbsent(val, k -> new ArrayList<>()).add(i);
+        }
+
+        return new ArrayList<>(groupedMap.values());
+    }
 
 
 }
