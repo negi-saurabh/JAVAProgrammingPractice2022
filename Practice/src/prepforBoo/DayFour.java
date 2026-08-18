@@ -7,8 +7,12 @@ import java.util.stream.Collectors;
 public class DayFour {
 
     public static void main(String[] args) {
-        List<List<String>> groupedList = groupAnagrams(new String[] {"eat","tea","tan","ate","nat","bat"});
-        groupedList.stream().forEach(a-> System.out.println(a));
+
+        String str = "saurabh";
+        System.out.println(str.substring(2));
+        System.out.println(str.substring(0, 2));
+//        List<List<String>> groupedList = groupAnagrams(new String[] {"eat","tea","tan","ate","nat","bat"});
+//        groupedList.stream().forEach(a-> System.out.println(a));
     }
 
     public static boolean validAnagram(String one, String two){
