@@ -1,12 +1,13 @@
-/.metadata/
-/Practice/target/
-/Practice/.settings/
-/.idea/
-kafkademo/target/maven-archiver/pom.properties
-kafkademo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
-kafkademo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
-kafkademo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
-kafkademo/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
-kafkademo/target/kafkademo-1.0-SNAPSHOT.jar
-kafkademo/target/kafkademo-1.0-SNAPSHOT.jar.original
-**kafkademo/target/**
+# Build output
+target/
+
+# IDE / workspace state
+.idea/
+.metadata/
+.settings/
+.classpath
+.project
+*.iml
+
+# OS
+.DS_Store

@@ -3,7 +3,7 @@
     "java.project.sourcePaths": [
         ".",
         "kafkademo",
-        "Practice"
+        "practice"
     ],
     "java.project.referencedLibraries": [],
     "java.compile.nullAnalysis.mode": "automatic"

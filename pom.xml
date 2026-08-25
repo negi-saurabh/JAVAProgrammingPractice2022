@@ -8,16 +8,16 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.4.5</version>
-        <relativePath />
+        <relativePath/>
     </parent>
 
-    <groupId>com.saurabh.kafka</groupId>
+    <groupId>com.saurabh.javaprogrammingpractice</groupId>
     <artifactId>java.programming</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>java.programming</name>
     <modules>
-        <module>kafkademo</module>
+        <module>practice</module>
     </modules>
 
     <properties>
