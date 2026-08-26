@@ -8,35 +8,41 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.stream.Stream;
 
-public class LogProcessor {
 
-    public static void main(String[] args) throws IOException {
+public class DayWiseLogProcessor {
+    private static final ZoneId REPORTING_ZONE = ZoneId.of("UTC");
+    public static void main(String[] args) {
         ReportAggregator reportAggregator = new ReportAggregator();
-
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
         objectMapper.configure(
                 DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
                 false
         );
+
+
+
+
         Path path = Path.of("/Users/saurabhnegi/Downloads/personal/A_Projects/JAVAProgrammingPractice2022/log.txt");
 
         try(Stream<String> lines = Files.lines(path)){
             lines.forEach(line -> {
                         try {
                             LogEvent logEvent = objectMapper.readValue(line, LogEvent.class);
+                            LocalDate date = logEvent.getTimestamp().atZone(REPORTING_ZONE).toLocalDate();
+
                             reportAggregator.accept(logEvent);
                         } catch (JsonProcessingException e){
                             System.err.println("Invalid JSON: " + line);
                         }
                     }
             );
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
         System.out.println("=== Payment Operations Report ===");
@@ -49,4 +55,5 @@ public class LogProcessor {
         System.out.println("Distinct users: "+reportAggregator.getDistinctUser().size());
         ;
     }
+
 }

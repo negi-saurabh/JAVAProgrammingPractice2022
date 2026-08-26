@@ -11,9 +11,9 @@ public class ReportAggregator {
 
     private int failedBookings;
 
-    private List<String> failedReasons = new ArrayList<>();
+    private Map<String, Integer> failedReasons = new HashMap<>();
 
-    private Map<Enum, Integer> paymentMethods = new HashMap<>();
+    private Map<Method, Integer> paymentMethods = new HashMap<>();
 
     private Set<String> distinctUser= new HashSet<>();
 
@@ -43,24 +43,24 @@ public class ReportAggregator {
         this.failedBookings = failedBookings;
     }
 
-    public List<String> getFailedReasons() {
-        return failedReasons;
+    public Map<String, Integer> getFailedReasons() {
+        return  Map.copyOf(failedReasons);
     }
 
-    public void setFailedReasons(List<String> failedReasons) {
+    public void setFailedReasons(Map<String, Integer> failedReasons) {
         this.failedReasons = failedReasons;
     }
 
-    public Map<Enum, Integer> getPaymentMethods() {
-        return paymentMethods;
+    public Map<Method, Integer> getPaymentMethods() {
+        return  Map.copyOf(paymentMethods);
     }
 
-    public void setPaymentMethods(Map<Enum, Integer> paymentMethods) {
+    public void setPaymentMethods(Map<Method, Integer> paymentMethods) {
         this.paymentMethods = paymentMethods;
     }
 
     public Set<String> getDistinctUser() {
-        return distinctUser;
+        return  Set.copyOf(distinctUser);
     }
 
     public void setDistinctUser(Set<String> distinctUser) {
@@ -83,10 +83,13 @@ public class ReportAggregator {
         if(Type.PAYMENT_FAILED.equals(event.getType()))
             failedBookings++;
 
-        if (event.getReason() != null)
-            failedReasons.add(event.getReason());
+        if (event.getReason() != null) {
+            failedReasons.merge(event.getReason(), 1, Integer::sum);
+        }
 
-        paymentMethods.merge(event.getType(), 1, Integer::sum);
+        if (event.getMethod() != null) {
+            paymentMethods.merge(event.getMethod(), 1, Integer::sum);
+        }
         if (event.getUserId() != null)
             distinctUser.add(event.getUserId());
 
