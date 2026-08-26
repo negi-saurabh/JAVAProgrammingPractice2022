@@ -1,0 +1,8 @@
+{"timestamp": "2026-08-20T14:23:01Z", "type": "booking_created", "bookingId": "BK1001", "userId": "U55", "amount": 245.00, "currency": "EUR"}
+{"timestamp": "2026-08-20T14:23:05Z", "type": "payment_attempted", "bookingId": "BK1001", "paymentId": "P8001", "amount": 245.00, "currency": "EUR", "method": "credit_card"}
+{"timestamp": "2026-08-20T14:23:06Z", "type": "payment_succeeded", "bookingId": "BK1001", "paymentId": "P8001"}
+{"timestamp": "2026-08-20T14:25:10Z", "type": "booking_created", "bookingId": "BK1002", "userId": "U62", "amount": 89.50, "currency": "EUR"}
+{"timestamp": "2026-08-20T14:25:15Z", "type": "payment_attempted", "bookingId": "BK1002", "paymentId": "P8002", "amount": 89.50, "currency": "EUR", "method": "paypal"}
+{"timestamp": "2026-08-20T14:25:20Z", "type": "payment_failed", "bookingId": "BK1002", "paymentId": "P8002", "reason": "insufficient_funds"}
+{"timestamp": "2026-08-20T14:26:00Z", "type": "payment_attempted", "bookingId": "BK1002", "paymentId": "P8003", "amount": 89.50, "currency": "EUR", "method": "credit_card"}
+{"timestamp": "2026-08-20T14:26:02Z", "type": "payment_succeeded", "bookingId": "BK1002", "paymentId": "P8003"}
