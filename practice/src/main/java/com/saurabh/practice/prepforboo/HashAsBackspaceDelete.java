@@ -1,6 +1,6 @@
 package com.saurabh.practice.prepforboo;
 
-public class BackspaceDelete {
+public class HashAsBackspaceDelete {
 
     public String deleteAsBackspace(String input){
         StringBuilder builder = new StringBuilder();
@@ -19,10 +19,10 @@ public class BackspaceDelete {
     }
     public static void main(String[] args) {
 
-        String string1 = new BackspaceDelete().deleteAsBackspace("abc#def##");
-        String string2 = new BackspaceDelete().deleteAsBackspace("#abc");
-        String string3 = new BackspaceDelete().deleteAsBackspace("ab####");
-        String string4 = new BackspaceDelete().deleteAsBackspace("");
+        String string1 = new HashAsBackspaceDelete().deleteAsBackspace("abc#def##");
+        String string2 = new HashAsBackspaceDelete().deleteAsBackspace("#abc");
+        String string3 = new HashAsBackspaceDelete().deleteAsBackspace("ab####");
+        String string4 = new HashAsBackspaceDelete().deleteAsBackspace("");
 
         System.out.println("string1 "+string1);
         System.out.println("string2 "+string2);
