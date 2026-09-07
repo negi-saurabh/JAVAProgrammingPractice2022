@@ -1,6 +1,7 @@
 package com.saurabh.practice.prepforboo.reportgenerator;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.*;
 
 public class ReportAggregator {
@@ -18,6 +19,7 @@ public class ReportAggregator {
     private Set<String> distinctUser= new HashSet<>();
 
     private BigDecimal totalAmount = BigDecimal.ZERO;
+
 
     public int getBookingsCreated() {
         return bookingsCreated;
@@ -101,5 +103,6 @@ public class ReportAggregator {
             }
         }
     }
+
 
 }

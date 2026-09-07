@@ -1,5 +1,10 @@
+package com.saurabh.kafka.RestTest;
+
 import java.net.URI;
 import java.net.http.*;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.fasterxml.jackson.databind.*;
 
 public class RestTest{
@@ -10,7 +15,7 @@ public class RestTest{
         List<JsonNode> allItems = new ArrayList<>();
         int page = 1, totalpages = 1;
         do{
-            String url = ""+page
+            String url = ""+page;
             HttpRequest req = HttpRequest.newBuilder().uri(URI.create(url)).GET().build();
             HttpResponse<String> res = client.send(req, HttpResponse.BodyHandlers.ofString());
 
@@ -23,6 +28,6 @@ public class RestTest{
             page++;
         } while(page<=totalpages);
 
-            return allItems.stream().
+            return Math.toIntExact(allItems.stream().count()) ;
     }
 }
