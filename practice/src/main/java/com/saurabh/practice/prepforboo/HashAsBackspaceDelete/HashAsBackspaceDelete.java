@@ -1,4 +1,4 @@
-package com.saurabh.practice.prepforboo;
+package com.saurabh.practice.prepforboo.HashAsBackspaceDelete;
 
 public class HashAsBackspaceDelete {
 
