@@ -1,0 +1,4 @@
+02-01-2014 10:05:00:000 Engine RPM nominal
+02-01-2014 09:40:00:000 Cabin pressure check
+02-01-2014 10:20:00:000 Altitude stable
+02-01-2014 09:15:00:000 Takeoff sequence initiated

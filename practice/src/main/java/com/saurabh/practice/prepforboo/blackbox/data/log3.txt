@@ -1,0 +1,4 @@
+02-01-2014 09:58:00:000 Fuel level check
+02-01-2014 10:25:00:000 Autopilot disengaged
+02-01-2014 09:00:00:000 Ground crew signoff
+02-01-2014 10:02:00:001 Warning light activated

@@ -1,4 +1,4 @@
-package com.saurabh.practice.prepforboo.CacheImplementation;
+package com.saurabh.practice.prepforboo.cacheImplementation;
 
 import java.util.HashMap;
 import java.util.Map;

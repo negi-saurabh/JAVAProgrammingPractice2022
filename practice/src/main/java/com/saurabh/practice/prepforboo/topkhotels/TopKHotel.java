@@ -1,4 +1,4 @@
-package com.saurabh.practice.prepforboo.TopkHotels;
+package com.saurabh.practice.prepforboo.topkhotels;
 
 
 import java.util.*;

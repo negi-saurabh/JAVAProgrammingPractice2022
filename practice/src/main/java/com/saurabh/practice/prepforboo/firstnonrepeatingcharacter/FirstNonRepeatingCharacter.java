@@ -1,4 +1,4 @@
-package com.saurabh.practice.prepforboo.FirstNonRepeatingCharacter;
+package com.saurabh.practice.prepforboo.firstnonrepeatingcharacter;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
