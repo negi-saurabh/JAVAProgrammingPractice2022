@@ -12,12 +12,14 @@ public class PalindromeCheck {
             StringBuffer buffer = new StringBuffer();
 
             for(int i = 0; i < s.length() ; i++){
-                if(Character.isAlphabetic(s.charAt(i))){
+                if(Character.isLetterOrDigit(s.charAt(i))){
                     buffer.append(s.charAt(i));
                 }
             }
 
             String cleanString  = buffer.toString().toLowerCase();
+            if(cleanString.length() == 0)
+                return true;
 
             int j = cleanString.length()-1;
             int mid = j/2;
@@ -32,7 +34,9 @@ public class PalindromeCheck {
         }
 
     public static void main(String[] args) {
-       System.out.println(new PalindromeCheck().isPalindrome("race a car"));
+
+//            System.out.println("      ".length());
+       System.out.println(new PalindromeCheck().isPalindrome("0P"));
     }
 
 }
