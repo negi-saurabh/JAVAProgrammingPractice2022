@@ -5,19 +5,15 @@ import com.saurabh.practice.leetcode2026.easy.array.MergeSortedArray;
 public class PalindromeCheck {
 
         public boolean isPalindrome(String s) {
-
-            if(s.trim() == "")
-                return true;
-
-            StringBuffer buffer = new StringBuffer();
+            StringBuilder builder = new StringBuilder();
 
             for(int i = 0; i < s.length() ; i++){
                 if(Character.isLetterOrDigit(s.charAt(i))){
-                    buffer.append(s.charAt(i));
+                    builder.append(s.charAt(i));
                 }
             }
 
-            String cleanString  = buffer.toString().toLowerCase();
+            String cleanString  = builder.toString().toLowerCase();
             if(cleanString.length() == 0)
                 return true;
 
