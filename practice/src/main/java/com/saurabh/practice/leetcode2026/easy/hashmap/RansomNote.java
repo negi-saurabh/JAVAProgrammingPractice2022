@@ -17,11 +17,19 @@ public class RansomNote {
             if(charMap.containsKey(ransomNote.charAt(i))){
                 Integer val = charMap.get(ransomNote.charAt(i));
                 val -= 1;
-                charMap.put(ransomNote.charAt(i), val);
+                if(val==0){
+                    charMap.remove(ransomNote.charAt(i));
+                }else {
+                    charMap.put(ransomNote.charAt(i), val);
+                }
             }else{
                 return false ;
             }
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        new RansomNote().canConstruct("aa", "ab");
     }
 }
