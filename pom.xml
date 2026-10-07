@@ -18,6 +18,7 @@
     <name>java.programming</name>
     <modules>
         <module>practice</module>
+        <module>udemycourse</module>
     </modules>
 
     <properties>
