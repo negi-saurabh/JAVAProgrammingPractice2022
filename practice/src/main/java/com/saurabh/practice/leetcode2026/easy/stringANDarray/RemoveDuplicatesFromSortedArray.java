@@ -1,4 +1,4 @@
-package com.saurabh.practice.leetcode2026.easy.array;
+package com.saurabh.practice.leetcode2026.easy.stringANDarray;
 
 public class RemoveDuplicatesFromSortedArray {
 

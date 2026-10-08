@@ -1,6 +1,4 @@
-package com.saurabh.practice.leetcode2026.easy.string;
-
-import com.saurabh.practice.leetcode2026.easy.array.MergeSortedArray;
+package com.saurabh.practice.leetcode2026.easy.stringANDarray;
 
 public class PalindromeCheck {
 

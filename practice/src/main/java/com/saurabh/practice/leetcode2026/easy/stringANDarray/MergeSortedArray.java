@@ -1,8 +1,4 @@
-package com.saurabh.practice.leetcode2026.easy.array;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+package com.saurabh.practice.leetcode2026.easy.stringANDarray;
 
 public class MergeSortedArray {
 
