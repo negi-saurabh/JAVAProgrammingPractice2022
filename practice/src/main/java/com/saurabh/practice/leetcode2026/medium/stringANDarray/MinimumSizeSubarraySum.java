@@ -1,4 +1,4 @@
-package com.saurabh.practice.leetcode2026.medium.array;
+package com.saurabh.practice.leetcode2026.medium.stringANDarray;
 
 public class MinimumSizeSubarraySum {
     public int minSubArrayLen(int target, int[] nums) {

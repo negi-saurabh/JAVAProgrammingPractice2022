@@ -19,6 +19,7 @@
     <modules>
         <module>practice</module>
         <module>udemycourse</module>
+        <module>spring-AI-test-project</module>
     </modules>
 
     <properties>
