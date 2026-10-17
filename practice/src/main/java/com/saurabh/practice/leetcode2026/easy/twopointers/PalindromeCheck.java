@@ -1,4 +1,4 @@
-package com.saurabh.practice.leetcode2026.easy.stringANDarray;
+package com.saurabh.practice.leetcode2026.easy.twopointers;
 
 public class PalindromeCheck {
 
