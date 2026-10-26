@@ -5,19 +5,15 @@ import java.util.Collections;
 
 public class HIndexUsingSort {
     public int hIndex(int[] citations) {
-        int hIndex = 0;
-        int[] arrDesc = Arrays.stream(citations).boxed()
-                .sorted(Collections.reverseOrder())
-                .mapToInt(Integer::intValue)
-                .toArray();
-        for(int i = 0; i < arrDesc.length; i++){
-            if(arrDesc[i] > hIndex)
-                hIndex++;
-            else{
-                break;
+        Arrays.sort(citations);
+        int n=citations.length;
+        for(int i=0;i<n;i++){
+            int papers=n-i;
+            if(citations[i]>=papers){
+                return papers;
             }
         }
-        return hIndex;
+        return 0;
     }
 
     public static void main(String[] args) {
