@@ -1,26 +1,37 @@
 package com.saurabh.practice.leetcode2026.easy.hashmap;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class WordPattern {
 
     public boolean wordPattern(String pattern, String s) {
 
-        String[] stringArray = s.split("\\s+");
-        char[] charArray = pattern.toCharArray();
+        String[] words = s.trim().split("\\s+");
 
-        if(stringArray.length != charArray.length)
+        if (words.length != pattern.length())
             return false;
 
         Map<Character, String> map = new HashMap<>();
+        Set<String> usedWords = new HashSet<>();
 
-        for(int i=0; i < charArray.length; i++){
-            if(map.containsValue(stringArray[i]) && !map.containsKey(charArray[i]))
-                return false;
-            if(map.containsKey(charArray[i]) && !map.get(charArray[i]).equals(stringArray[i]))
-                return false;
-            map.put(charArray[i], stringArray[i]);
+        for (int i = 0; i < pattern.length(); i++) {
+
+            char c = pattern.charAt(i);
+            String word = words[i];
+
+            if (map.containsKey(c)) {
+                if (!map.get(c).equals(word))
+                    return false;
+            } else {
+                if (usedWords.contains(word))
+                    return false;
+
+                map.put(c, word);
+                usedWords.add(word);
+            }
         }
 
         return true;
