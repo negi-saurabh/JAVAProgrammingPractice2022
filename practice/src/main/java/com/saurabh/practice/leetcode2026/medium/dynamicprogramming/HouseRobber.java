@@ -22,4 +22,10 @@ public class HouseRobber {
 
         return maxValue;
     }
+
+    public static void main(String[] args) {
+
+        System.out.println(448 % 10);
+        System.out.println(4 / 10);
+    }
 }
