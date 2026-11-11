@@ -1,5 +1,8 @@
 package com.saurabh.practice.leetcode2026.medium.dynamicprogramming;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class HouseRobber {
 
     public int rob(int[] nums) {
@@ -25,7 +28,10 @@ public class HouseRobber {
 
     public static void main(String[] args) {
 
-        System.out.println(448 % 10);
-        System.out.println(4 / 10);
+        Stream.of(3, 1, 2)
+                .peek(n -> System.out.println("before sort: " + n))
+                .sorted()
+                .peek(n -> System.out.println("after sort:  " + n))
+                .collect(Collectors.toList());
     }
 }

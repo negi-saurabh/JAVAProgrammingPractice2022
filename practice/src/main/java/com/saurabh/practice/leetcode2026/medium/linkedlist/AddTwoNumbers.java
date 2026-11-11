@@ -1,5 +1,7 @@
 package com.saurabh.practice.leetcode2026.medium.linkedlist;
 
+import java.util.List;
+
 public class AddTwoNumbers {
 
     public static class ListNode {
@@ -20,41 +22,39 @@ public class AddTwoNumbers {
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-
-        // loop through l1 and construct the number  and reverse
-        // same for l2
-        // add numbers
-        // create one empty linked list and set each digit at each node
-
         StringBuilder builder = new StringBuilder();
+        int carry = 0;
 
-        while (l1 != null) {
-            builder.append(l1.val);
-            l1 = l1.next;
+        while (l1 != null || l2 != null || carry != 0) {
+            int val1 = (l1 != null) ? l1.val : 0;
+            int val2 = (l2 != null) ? l2.val : 0;
+
+            int addition = val1 + val2 + carry;
+
+            if (addition / 10 != 0)
+                carry = 1;
+            else
+                carry = 0;
+
+            builder.append(addition % 10);
+            if (l1 != null) l1 = l1.next;
+            if (l2 != null) l2 = l2.next;
         }
 
-        int val1 = Integer.parseInt(builder.reverse().toString());
-        builder.setLength(0);
-
-
-        while (l2 != null) {
-            builder.append(l2.val);
-            l2 = l2.next;
+        int finalInteger = Integer.parseInt(builder.reverse().toString());
+        if (finalInteger == 0){
+            return new ListNode(0);
         }
 
-        int val2 = Integer.parseInt(builder.reverse().toString());
-
-        String finalVal = String.valueOf(val1 + val2);
-
-        int finalIntVal = Integer.parseInt(finalVal);
-
-        ListNode dummy = new ListNode();
+        ListNode dummy = new ListNode(0);
         ListNode current = dummy;
 
-        while (finalIntVal != 0) {
-            current.next = new ListNode(finalIntVal % 10);
+        while (finalInteger != 0) {
+            int quotient = finalInteger % 10;
+            ListNode newNode = new ListNode(quotient);
+            current.next = newNode;
             current = current.next;
-            finalIntVal = finalIntVal / 10;
+            finalInteger = finalInteger / 10;
         }
         return dummy.next;
     }
