@@ -3,7 +3,13 @@ package com.saurabh.practice.array;
 import java.util.ArrayList;
 
 public class TestJavaFile {
+
 	public static void main(String args[]) {
+
+		System.out.println(1+3+"a");
+		System.out.println(1+"a"+2);
+		System.out.println("A"+1+2);
+
 		int n = 42;
 		int s = 468;
 		int arr[] = { 135, 101, 170, 125, 79, 159, 163, 65, 106, 146, 82, 28, 162, 92, 196, 143, 28, 37, 192, 5, 103,
